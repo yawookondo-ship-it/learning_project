@@ -66,7 +66,7 @@ resource "aws_vpc" "main" {
   }
 } 
 module "vpc" {
-source ="terraform"
+source ="module/vpc/aws"
   name = "my-vpc_12"
   cidr = "10.0.0.0/16"
 
