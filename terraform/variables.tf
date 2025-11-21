@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "yawo_obi_12" {
 }
 
 module "ec2_instance" {
-  source        = "module/ec2/aws"
+  source        = "ec2-aws"
   #version       = "5.0" # Use the latest version for new projects
 
   name          = "Training_1"
