@@ -1,16 +1,15 @@
-
-resource "aws_s3_bucket" "example_bucket" {
+resource "aws_s3_bucket" "yawo_obi_12" {
   bucket = "yawo_obi_12" # Bucket names must be globally unique
 
   tags = {
-    Project     = "Example"
+    Project     = "yawo_obi_12"
     Environment = "Dev"
   }
 }
 
 module "ec2_instance" {
-  source        = "terraform-aws-modules/ec2-instance/aws"
-  version       = "5.0" # Use the latest version for new projects
+  source        = ""
+  #version       = "5.0" # Use the latest version for new projects
 
   name          = "Training_1"
   instance_type = "t3.micro"
