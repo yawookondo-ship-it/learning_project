@@ -16,24 +16,24 @@ provider "aws" {
 
 # aws_iam_user.first_user
 resource "aws_iam_user" "first_user" {
-  name = "Class5"
+  name = "Anuk"
   path = "/Terraform/"
   force_destroy = true
 
   tags = {
-     "Owner"   = "Gokul"
+     "Owner"   = "Yawo"
      "Purpose" = "Terraform Course"
   }
 }
 
 # aws_iam_user.second_user
 resource "aws_iam_user" "second_user" {
-  name = "Class5a"
+  name = "Akekle"
   path = "/Terraform/"
   force_destroy = true
 
   tags = {
-     "Owner"   = "Gokul"
+     "Owner"   = "Yawo"
      "Purpose" = "Terraform Course"
   }
 }
@@ -41,7 +41,7 @@ resource "aws_iam_user" "second_user" {
 # IAM Group
 
 resource "aws_iam_group" "admin" {
-name = "Administrators"
+name = "Admin"
 
 depends_on = [
   aws_iam_user.first_user
@@ -51,7 +51,7 @@ depends_on = [
 resource "aws_iam_group_membership" "admin_group" {
     name = "admin-group-members"
     users =  [aws_iam_user.first_user.name, aws_iam_user.second_user.name ]   #["Class5", "Class5a"]
-    group =  aws_iam_group.admin.name         #"Administrators"
+    group =  aws_iam_group.admin.name         #"Admin"
 
 }
 
@@ -63,5 +63,23 @@ resource "aws_vpc" "main" {
 
   tags = {
     Name = "main-vpc"
+  }
+} 
+module "vpc" {
+  source = "terraform-aws-modules/vpc/aws"
+
+  name = "my-vpc_12"
+  cidr = "10.0.0.0/16"
+
+  azs             = ["us-east-1"]
+  private_subnets = ["10.0.1.0/24"]
+  public_subnets  = ["10.0.101.0/24"]
+
+  enable_nat_gateway = true
+  enable_vpn_gateway = true
+
+  tags = {
+    Terraform = "true"
+    Environment = "dev"
   }
 }
