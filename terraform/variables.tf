@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "example_bucket" {
 
 module "ec2_instance" {
   source        = "terraform-aws-modules/ec2-instance/aws"
-  version       = "6.1.4" # Use the latest version for new projects
+  version       = "5.0" # Use the latest version for new projects
 
   name          = "Training_1"
   instance_type = "t3.micro"

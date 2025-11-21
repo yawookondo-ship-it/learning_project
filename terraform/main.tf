@@ -50,7 +50,7 @@ depends_on = [
 
 resource "aws_iam_group_membership" "admin_group" {
     name = "admin-group-members"
-    users =  [aws_iam_user.first_user.name, aws_iam_user.second_user.name ]   #["Class5", "Class5a"]
+    users =  [aws_iam_user.first_user.name, aws_iam_user.second_user.name ]   
     group =  aws_iam_group.admin.name         #"Admin"
 
 }
