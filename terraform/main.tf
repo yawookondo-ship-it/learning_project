@@ -66,7 +66,7 @@ resource "aws_vpc" "main" {
   }
 } 
 module "vpc" {
-source ="module/vpc/aws"
+source ="vpc-aws"
   name = "my-vpc_12"
   cidr = "10.0.0.0/16"
 
