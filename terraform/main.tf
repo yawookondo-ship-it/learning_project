@@ -22,7 +22,7 @@ resource "aws_iam_user" "first_user" {
 
   tags = {
      "Owner"   = "Yawo"
-     "Purpose" = "Terraform Course"
+     "Purpose" = "terraform training"
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_iam_user" "second_user" {
 
   tags = {
      "Owner"   = "Yawo"
-     "Purpose" = "Terraform Course"
+     "Purpose" = "terraform training"
   }
 }
 

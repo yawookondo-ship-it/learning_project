@@ -1,8 +1,8 @@
-resource "aws_s3_bucket" "example_bucket" {
+resource "aws_s3_bucket" "yawo_obi_12" {
   bucket = "yawo_obi_12" # Bucket names must be globally unique
 
   tags = {
-    Project     = "Example"
+    Project     = "yawo_obi_12"
     Environment = "Dev"
   }
 }
