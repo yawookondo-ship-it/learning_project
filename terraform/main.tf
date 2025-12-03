@@ -65,20 +65,18 @@ resource "aws_vpc" "main" {
     Name = "main-vpc"
   }
 } 
-module "vpc" {
-source ="./vpc/aws"
-  name = "my-vpc_12"
-  cidr = "10.0.0.0/16"
-
-  azs             = ["us-east-1"]
-  private_subnets = ["10.0.1.0/24"]
-  public_subnets  = ["10.0.101.0/24"]
-
-  enable_nat_gateway = true
-  enable_vpn_gateway = true
+resource "aws_vpc" "second_1" {
+  cidr_block       = "10.0.0.0/16" 
+  instance_tenancy = "default"
 
   tags = {
-    Terraform = "true"
-    Environment = "dev"
+    Name = "second_1"
+  }
+}
+resource "aws_default_subnet" "default_az1" {
+  availability_zone = "us-east-1"
+
+  tags = {
+    Name = "Default subnet for us-east-1"
   }
 }
